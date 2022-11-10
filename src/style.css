@@ -218,7 +218,7 @@ body {
   'header header text text'
   'header header text text'
   'header header button button';
-  gap: 9% 10%;
+  gap: 9% 5%;
 }
 .article-image {
   grid-area: image;
@@ -301,7 +301,7 @@ body {
   'image image number number .'
   'image image header header header'
   'image image text text text';
-  gap: 15% 5%;
+  gap: 0% 11%;
 }
 .suggestion-image {
   grid-area: image;
