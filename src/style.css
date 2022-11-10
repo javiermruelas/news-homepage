@@ -1,0 +1,331 @@
+:root {
+  --clr-primary-bkgd: hsl(36, 100%, 99%);
+  --clr-primary: hsl(233, 8%, 79%);
+
+  --clr-light-accent-1: hsl(35, 77%, 62%);
+  --clr-light-accent-2: hsl(5, 85%, 63%);
+  --clr-dark-accent-1: hsl(236, 13%, 42%);
+  --clr-dark-accent-2: hsl(240, 100%, 5%);
+
+  --fw-bold: 800;
+  --fw-less-bold: 700;
+  --fw-regular: 400;
+
+  --fs-800-desktop: 3.5rem;
+  --fs-800-mobile: 1.5rem;
+  --fs-700: 1.125rem;
+  --fs-400: 0.9375rem; 
+}
+
+@font-face {
+  font-family: 'InterExtraBold';
+  src: url('../assets/fonts/static/Inter-ExtraBold.ttf');
+}
+@font-face {
+  font-family: 'InterBold';
+  src: url('../assets/fonts/static/Inter-Bold.ttf');
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/static/Inter-Regular.ttf');
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Inter';
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+}
+
+button:active {
+  background: var(--clr-dark-accent-2);
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: inherit;
+  text-decoration: none;
+}
+a:active {
+  color: var(--clr-light-accent-2);
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utility Classes */
+.primary-clr {
+  background: var(--clr-primary-bkgd);
+}
+.light-1-clr {
+  color: var(--clr-light-accent-1);
+}
+.light-1-bkgd {
+  background: var(--clr-light-accent-1);
+}
+.light-2-clr {
+  color: var(--clr-light-accent-2);
+}
+.light-2-bkgd {
+  background: var(--clr-light-accent-2);
+}
+.dark-1-clr {
+  background: var(--clr-dark-accent-1);
+}
+.dark-1-bkgd {
+  background: var(--clr-dark-accent-1);
+}
+.dark-2-clr {
+  color: var(--clr-dark-accent-2);
+}
+.dark-2-bkgd {
+  background: var(--clr-dark-accent-2);
+}
+.font-bold {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-800-desktop);
+}
+.font-less-bold {
+  font-weight: var(--fw-less-bold);
+  font-size: var(--fs-700);
+}
+.font-regular {
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-400);
+}
+
+/* Custom */
+.header {
+  grid-area: header;
+}
+.main {
+  grid-area: main;
+}
+.sidebar {
+  grid-area: sidebar;
+}
+.suggestions {
+  grid-area: suggestions;
+}
+.footer {
+  grid-area: footer;
+}
+body {
+  display: grid;
+  grid-template-areas:
+    'header header header'
+    'main main sidebar'
+    'main main sidebar'
+    'main main sidebar'
+    'suggestions suggestions suggestions'
+    'footer footer footer';
+  gap: 6.5% 8%;
+  width: 100%;
+  padding: 5.7% 7%;
+  background: var(--clr-primary-bkgd);
+}
+
+.header {
+  margin: 0 0 3.5% 0;
+}
+.header-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-bar  {
+  width: 50%;
+}
+.nav-bar ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+}
+.nav-bar ul li {
+  margin: 0 0 0 9%;
+}
+
+/* main */
+.main-article-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  'image image image image'
+  'header header text text'
+  'header header text text'
+  'header header button button';
+  gap: 9% 10%;
+}
+.article-image {
+  grid-area: image;
+}
+.article-header {
+  grid-area: header;
+  font-family: 'InterExtraBold';
+  line-height: 3.5rem;
+}
+.article-text {
+  grid-area: text;
+  line-height: 25px;
+}
+.article-button {
+  grid-area: button;
+  color: var(--clr-primary-bkgd);
+  outline: none;
+  border: none;
+  min-height: 45px;
+  max-width: 60%;
+  letter-spacing: 4px;
+}
+
+/* sidebar */
+.sidebar {
+  background: var(--clr-dark-accent-2);
+  padding: 5%;
+}
+.sidebar-article {
+  margin: 0 0 10% 0;
+  min-height: 10%;
+  padding-bottom: 10%;
+  border-bottom: 1px solid var(--clr-dark-accent-1);
+}
+.sidebar-article:last-of-type {
+  border-bottom: none;
+}
+.sidebar-article-header {
+  color: var(--clr-primary-bkgd);
+  font-family: 'InterBold';
+}
+.sidebar-article-header:active {
+  color: var(--clr-light-accent-1);
+}
+.sidebar p {
+  color: var(--clr-dark-accent-1);
+}
+.sidebar-header {
+  color: var(--clr-light-accent-1);
+  text-align: left;
+  width: 100%;
+  font-size: 2.5rem;
+  margin: 0 0 10% 0;
+  font-family: 'Inter';
+}
+.sidebar-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* suggestions ribbon */
+.suggestions-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.suggestions-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0;
+}
+.suggestion-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  'image image number number .'
+  'image image header header header'
+  'image image text text text';
+  gap: 15% 5%;
+}
+.suggestion-image {
+  grid-area: image;
+  min-height: 90%;
+  min-width: 40%;
+  margin: 0 5% 0 0;
+}
+.suggestion-number {
+  grid-area: number;
+  min-width: 25%;
+  color: var(--clr-primary);
+  font-family: 'InterExtraBold';
+  font-size: 2rem;
+}
+.suggestion-header {
+  grid-area: header;
+  min-width: 45%;
+  font-family: 'InterExtraBold';
+}
+.suggestion-header:active {
+  color: var(--clr-light-accent-2);
+}
+.suggestion-text {
+  grid-area: text;
+  min-width: 45%;
+  line-height: 20px;
+}
